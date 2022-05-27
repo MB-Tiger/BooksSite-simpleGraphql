@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { gql, useQuery, useMutation } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import { FiEdit } from "react-icons/fi";
+import useTitle from "../hooks/useTitle";
 
 const MY_AUTHOR = gql`
   query Query($id: ID!) {
@@ -22,6 +23,7 @@ const SET_AUTHOR = gql`
 `;
 
 const Author = () => {
+  useTitle("Author");
   const { id } = useParams();
   const { loading, error, data, refetch } = useQuery(MY_AUTHOR, {
     variables: {

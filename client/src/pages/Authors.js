@@ -1,6 +1,7 @@
 import React from "react";
 import { gql, useQuery } from "@apollo/client";
 import { Link } from "react-router-dom";
+import useTitle from "../hooks/useTitle";
 
 export const AUTHORS = gql`
   query Query {
@@ -12,6 +13,7 @@ export const AUTHORS = gql`
 `;
 
 const Authors = () => {
+  useTitle("Authors");
   const { loading, error, data } = useQuery(AUTHORS);
 
   console.log(data);

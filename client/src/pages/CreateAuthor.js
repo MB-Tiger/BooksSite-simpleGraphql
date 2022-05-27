@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { gql, useMutation } from "@apollo/client";
 import { AUTHORS } from "./Authors";
+import useTitle from "../hooks/useTitle";
 
 const CREATE_AUTHOR = gql`
   mutation Mutation($name: String!) {
@@ -11,6 +12,7 @@ const CREATE_AUTHOR = gql`
 `;
 
 const CreateAuthor = () => {
+  useTitle("Create author");
   const [sumbitAuthor] = useMutation(CREATE_AUTHOR, {
     refetchQueries: [AUTHORS],
   });

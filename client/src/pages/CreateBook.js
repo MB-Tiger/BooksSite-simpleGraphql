@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { gql, useMutation } from "@apollo/client";
 import { MY_BOOKS } from "./Books";
+import useTitle from "../hooks/useTitle";
 
 const UID = () => `${new Date().getTime()}${String(Math.random()).slice(3, 9)}`;
 
@@ -13,6 +14,7 @@ const CREATE_BOOK = gql`
 `;
 
 const CreateBook = () => {
+  useTitle("Create book");
   const [sumbitBook] = useMutation(CREATE_BOOK, {
     refetchQueries: [MY_BOOKS],
   });

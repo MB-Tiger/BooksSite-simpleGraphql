@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { gql, useQuery, useMutation } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import { FiEdit } from "react-icons/fi";
+import useTitle from "../hooks/useTitle";
 
 const USER_BOOK = gql`
   query Query($id: ID!) {
@@ -22,6 +23,7 @@ const SET_BOOK = gql`
 `;
 
 const Book = () => {
+  useTitle("Book");
   const { id } = useParams();
   const { loading, error, data, refetch } = useQuery(USER_BOOK, {
     variables: {
