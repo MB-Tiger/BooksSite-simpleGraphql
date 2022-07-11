@@ -20,7 +20,7 @@ const MainLayout = () => {
             isNavbar ? "block" : "hidden"
           }`}
         >
-          <Navbar />
+          <Navbar setIsNavbar={setIsNavbar} />
         </div>
         <div className="lg:col-span-3 col-span-4 border-t border-l">
           <div
